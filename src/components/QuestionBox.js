@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
-const QuestionBox = ({question,options, selected}) => {
+const QuestionBox = ({ question, options, selected }) => {
     const [answer, setAnswer] = useState(options)
+    const [answered, checkAnswers] = useState(false)
+    
     function clickAnswer(text) {
-        if (answer.length > 1) {
+        if (answered === false) {
           setAnswer([text]);
           selected(text);
+          checkAnswers(true)
         }
       }
 
